@@ -4,7 +4,7 @@ img {
     vertical-align: top;
 }
 
-h1, h2 {
+h1, h2, h3 {
     margin: unset;
     padding: unset;
     font-weight: unset;
@@ -30,12 +30,18 @@ p {
 }
 
 /* Web Design */
+body {
+    background-color: #111;
+}
+
+
 .header-inside {
     position: relative;
     display: flex;
     z-index: 0;
     align-items: flex-end;
     min-height: 676px;
+    gap: 30px;
 }
 
 .header-inside .header-img {
@@ -55,6 +61,8 @@ p {
     font-weight: bold;
     margin-left: 60px;
     margin-bottom: 26px;
+    flex-basis: 0;
+    flex-grow: 1;
 }
 
 .header-inside .header-title::before {
@@ -77,36 +85,28 @@ p {
     background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
-.header-inside .side-bar-title {
-    z-index: 3;
-    line-height: 1.6;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    margin-left: auto;
-    min-width: 300px;
-    margin-bottom: 30px;
-}
 
 main .main-inside {
     display: flex;
     background-color: #111;
     gap: 100px;
-    
 }
 
 main .movie-explain {
     flex-grow: 1;
+    flex-basis: 0;
     color: #999;
     line-height: 1.6;
     padding-top: 26px;
 }
 
 main .side-bar {
-    box-shadow: inset 0 0 20px blue;
     color: white;
     margin-left: auto;
-    min-width: 300px;
+    max-width: 300px;
+    margin-top: -60px;
+    flex-grow: 1;
+    flex-basis: 0;
 }
 
 main .movie-explain .movie-info {
@@ -114,8 +114,10 @@ main .movie-explain .movie-info {
    margin-left: 60px;
 }
 
-.side-bar {
-   margin-top: -30px;
+.side-bar .side-bar-title {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .side-bar .side-bar-header {
@@ -138,16 +140,64 @@ main .movie-explain .movie-info {
 }
 
 .side-bar .side-bar-rating {
-    box-shadow: inset 0 0 20px pink;
+    margin-bottom: 40px;
 }
 
 .side-bar .side-bar-rating .side-bar-rating-title {
     color: white;
     font-weight: bold;
     font-size: 16px;
-    box-shadow: inset 0 0 20px pink;
+}
+
+.side-bar .side-bar-rating .rating-area {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side-bar .side-bar-rating .Rating-star {
+    margin: 0 auto;
+    margin-top: 20px;
+    max-width: 55px;
 }
 
 .side-bar .side-bar-casts {
-    box-shadow: inset 0 0 20px yellow;
+
+}
+
+.side-bar .side-bar-casts .casts-title {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.side-bar .side-bar-casts .cast-member-list{
+    display: flex;
+    justify-content: left;
+}
+
+.side-bar .side-bar-casts .cast-member-list .cast-member {
+    width: 64px;
+    height: 64px;
+    border: 4px solid #111;
+    border-radius: 50px;
+    margin: 26px -15px 26px 0px;
+}
+
+@media (max-width: 700px)
+{
+    main .main-inside {
+        flex-direction: column;
+        gap: 37px;
+    }
+
+    main .movie-explain .movie-info {
+        white-space: pre-line;
+        margin: 0 60px;
+     }
+
+     main .side-bar {
+        color: white;
+        margin : 0 auto 0 60px;
+        max-width: 300px;
+    }
 }
